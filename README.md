@@ -1,14 +1,18 @@
-# An AI-Powered Coding Experiment
-
-This is an experiment where I'm limiting myself to using only AI tools to write and improve code. I started with a problem I had: using my Kindle in Japanese and English led to both languages used in 'My Clippings.txt', where highlights are stored. This is a problem when the services I use to parse the highlights expect only the English formatting.
-
----
-
 # snip-snap
+
 
 Snip-snap is a command-line tool that localizes Kindle clippings exported from devices in different languages into English. It parses the clippings file and converts date formats, page numbers, and location information into a consistent English format.
 
 This project was written entirely via [Aider](https://github.com/paulgauthier/aider), an AI-powered coding assistant.
+
+## Note: AI Coding Experiment
+This is an experiment where I'm limiting myself to using only AI tools to write and improve code in an effort to improve how I think and work with AI tools.
+
+I started with a problem I had: using my Kindle in Japanese and English led to both languages used in 'My Clippings.txt', where highlights are stored. This is a problem when the services I use to parse the highlights support only English formats. This section in the README is the only part of the codebase written by hand.
+
+### Contributions
+
+I welcome contributions, fixes, new languages, and requests to localize into languages beyond English. Although not a requirement, I'd like to challenge you to use AI as well in your contributions - let's see how far we can go ✨
 
 ## Features
 
@@ -122,10 +126,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 [MIT](LICENSE)
 
----
 
-*This project was developed entirely using [Aider](https://github.com/paulgauthier/aider), an AI-powered coding assistant that streamlines the development process.*
-
-## A Note on AI Development & Contributions
-
-I welcome contributions, fixes, new languages, and requests to localize into languages beyond English. I'm doing this project not just to solve a practical problem, but to improve how I think and work with AI tools. I'd like to challenge you to use AI as well in your contributions - let's see how far we can go with AI-assisted development!

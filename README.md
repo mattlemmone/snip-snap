@@ -25,6 +25,25 @@ I welcome contributions, fixes, new languages, and requests to localize into lan
 
 **Note:** Currently, the tool assumes that all clippings will be localized into English. Support for other target languages may be added in the future.
 
+## Usage
+
+To run the localizer, use the following command:
+
+```bash
+bun run src/index.ts <inputFilePath> <languageCode>
+```
+
+- `<inputFilePath>`: Path to the `.txt` clippings file exported from your Kindle device.
+- `<languageCode>`: Language code of the clippings file (e.g., `ja` for Japanese).
+
+Example:
+
+```bash
+bun run index.ts my_clippings.txt ja
+```
+
+This will generate a new file named `my_clippings_localized.txt` with the localized content.
+
 ### Sample Input/Output
 
 Input (`my_clippings.txt`):
@@ -67,25 +86,6 @@ Install the dependencies:
 ```bash
 bun install
 ```
-
-## Usage
-
-To run the localizer, use the following command:
-
-```bash
-bun run src/index.ts <inputFilePath> <languageCode>
-```
-
-- `<inputFilePath>`: Path to the `.txt` clippings file exported from your Kindle device.
-- `<languageCode>`: Language code of the clippings file (e.g., `ja` for Japanese).
-
-Example:
-
-```bash
-bun run index.ts my_clippings.txt ja
-```
-
-This will generate a new file named `my_clippings_localized.txt` with the localized content.
 
 ## Supported Languages
 

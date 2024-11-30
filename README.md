@@ -48,7 +48,7 @@ bun install
 To run the localizer, use the following command:
 
 ```bash
-bun run index.ts <inputFilePath> <languageCode>
+bun run src/index.ts <inputFilePath> <languageCode>
 ```
 
 - `<inputFilePath>`: Path to the `.txt` clippings file exported from your Kindle device.

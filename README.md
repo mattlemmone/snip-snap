@@ -81,16 +81,25 @@ bun test
 
 This will execute the tests defined in `index.test.ts`, ensuring that the localization functions work as expected.
 
-## Project Structure
+### Sample Input/Output
 
-- `index.ts`: The main entry point of the application.
-- `localization/`: Directory containing localization strategies and related interfaces.
-  - `LocalizationStrategy.ts`: Interface defining the structure for localization strategies.
-  - `BaseLocalizationStrategy.ts`: Abstract class providing a base implementation.
-  - `LocalizationFactory.ts`: Factory class to instantiate the appropriate localization strategy based on the language code.
-  - `plugins/`: Directory containing implementations for specific languages.
-    - `JapaneseLocalization.ts`: Localization strategy for Japanese clippings.
-- `index.test.ts`: Test suite for the localization functions.
+Input (`my_clippings.txt`):
+```
+夏目漱石『こころ』
+- 位置No. 124-125 | 作成日: 2023年11月2日木曜日 15:30:45
+
+それは私の心でもつかめない「私」であった。
+==========
+```
+
+Output (`my_clippings_localized.txt`):
+```
+夏目漱石『こころ』
+- Your Highlight | Location 124-125 | Added on Thursday, November 2, 2023 15:30:45
+
+それは私の心でもつかめない「私」であった。
+==========
+```
 
 ## Extending to Other Languages
 
@@ -120,10 +129,6 @@ To add support for another language:
 3. **Add Test Cases**:
 
    - Create test cases in `index.test.ts` to ensure your localization strategy works correctly.
-
-## Contributing
-
-Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## License
 

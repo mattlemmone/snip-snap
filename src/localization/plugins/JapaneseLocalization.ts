@@ -1,7 +1,8 @@
 import { BaseLocalizationStrategy } from '../BaseLocalizationStrategy';
+import { SUPPORTED_LOCALES } from '../constants';
 
 export default class JapaneseLocalization extends BaseLocalizationStrategy {
-  languageCode = 'ja';
+  languageCode = SUPPORTED_LOCALES.JAPANESE;
 
   private weekdayMap: { [key: string]: string } = {
     '月': 'Monday',
@@ -18,9 +19,6 @@ export default class JapaneseLocalization extends BaseLocalizationStrategy {
     'July', 'August', 'September', 'October', 'November', 'December',
   ];
 
-  constructor() {
-    super('ja');
-  }
 
   protected isClipLimitMessage(line: string): boolean {
     return line.includes('<このアイテムのクリップの上限に達しました>');

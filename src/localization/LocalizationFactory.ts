@@ -1,17 +1,18 @@
 import { LocalizationStrategy } from './LocalizationStrategy';
 import JapaneseLocalization from './plugins/JapaneseLocalization';
-// Import other localization strategies as needed
+import { SUPPORTED_LOCALES, isSupportedLocale } from './constants';
 
 export class LocalizationFactory {
   static getLocalizationStrategy(languageCode: string): LocalizationStrategy {
+    if (!isSupportedLocale(languageCode)) {
+      throw new Error(`Unsupported language code: ${languageCode}`);
+    }
+
     switch (languageCode) {
-      case 'ja':
+      case SUPPORTED_LOCALES.JAPANESE:
         return new JapaneseLocalization();
-      // Add cases for other languages
-      // case 'es':
-      //   return new SpanishLocalization();
       default:
-        throw new Error(`Unsupported language code: ${languageCode}`);
+        throw new Error(`Implementation missing for supported language code: ${languageCode}`);
     }
   }
 }

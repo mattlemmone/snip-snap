@@ -1,25 +1,15 @@
-The Pragmatic Programmer (Hunt, Andrew)
-- Your Highlight on page 23 | Location 345-346 | Added on Thursday, December 14, 2023 9:45:32 PM
+How to Take Smart Notes: One Simple Technique to Boost Writing, Learning and Thinking (Ahrens, Sönke)
+- Your Highlight on page 55 | Location 863-865 | Added on Tuesday, January 9, 2024 11:25:35 PM
 
-Don't live with broken windows—fix each one as soon as you find it. If you don't have time to fix it properly, board it up.
+The same goes for writing permanent notes, which have another feedback loop built-in: Expressing our own thoughts in writing makes us realise if we really thought them through. The moment we try to combine them with previously written notes, the system will unambiguously show us contradictions, inconsistencies and repetitions.
 ==========
-人間失格 (太宰治)
-- Your Highlight | Location 125-126 | Added on Friday, December 15, 2023 10:23:45 AM
+Art & Fear - David Bayles (David Bayles)
+- Your Highlight on page 21 | Location 233-234 | Added on Tuesday, October 1, 2024 10:20:07 PM
 
-人間というものは、生まれながらにして、正直で、親切で、すなおなものなのです。
+And it’s true, most artists don’t daydream about making great art — they daydream about having made great art.
 ==========
-Clean Code (Martin, Robert C.)
-- Your Highlight on Location 892-893 | Added on Friday, December 15, 2023 2:15:20 PM
+On Writing Well, 30th Anniversary Edition (Zinsser, William)
+- Your Highlight on page 6 | Location 161-161 | Added on Saturday, February 24, 2024 1:43:30 PM
 
-The first rule of functions is that they should be small. The second rule of functions is that they should be smaller than that.
-==========
-こころ (夏目漱石)
-- Your Highlight on page 45 | Location 678 | Added on Saturday, December 16, 2023 3:30:22 PM
-
-私は人間の生活の奥に潜んでいる真理を知りたいと思った。
-==========
-The Art of Learning (Waitzkin, Josh)
-- Your Highlight | Location 234 | Added on Saturday, December 16, 2023 5:12:45 PM
-
-Growth comes at the point of resistance. We learn by pushing ourselves and finding what really lies at the outer reaches of our abilities.
+Our national tendency is to inflate and thereby sound important.
 ==========

@@ -46,21 +46,21 @@ This will generate a new file named `my_clippings_localized.txt` with the locali
 
 ### Sample Input/Output
 
-Input (`my_clippings.txt`):
+Input (`examples/My Clippings.txt`):
 ```
-こころ (夏目漱石)
-- 45ページ | 位置No. 678 | 作成日: 2023年12月16日土曜日 15:30:22
+How to Take Smart Notes: One Simple Technique to Boost Writing, Learning and Thinking (Ahrens, Sönke)
+- 55ページ|位置No. 863-865のハイライト |作成日: 2024年1月9日火曜日 23:25:35
 
-私は人間の生活の奥に潜んでいる真理を知りたいと思った。
+The same goes for writing permanent notes, which have another feedback loop built-in: Expressing our own thoughts in writing makes us realise if we really thought them through. The moment we try to combine them with previously written notes, the system will unambiguously show us contradictions, inconsistencies and repetitions.
 ==========
 ```
 
-Output (`my_clippings_localized.txt`):
+Output (`examples/My Clippings_localized.txt`):
 ```
-こころ (夏目漱石)
-- Your Highlight on page 45 | Location 678 | Added on Saturday, December 16, 2023 3:30:22 PM
+How to Take Smart Notes: One Simple Technique to Boost Writing, Learning and Thinking (Ahrens, Sönke)
+- Your Highlight on page 55 | Location 863-865 | Added on Tuesday, January 9, 2024 11:25:35 PM
 
-私は人間の生活の奥に潜んでいる真理を知りたいと思った。
+The same goes for writing permanent notes, which have another feedback loop built-in: Expressing our own thoughts in writing makes us realise if we really thought them through. The moment we try to combine them with previously written notes, the system will unambiguously show us contradictions, inconsistencies and repetitions.
 ==========
 ```
 

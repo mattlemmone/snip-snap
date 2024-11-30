@@ -85,21 +85,23 @@ This will execute the tests defined in `index.test.ts`, ensuring that the locali
 
 Input (`my_clippings.txt`):
 ```
-夏目漱石『こころ』
-- 位置No. 124-125 | 作成日: 2023年11月2日木曜日 15:30:45
+こころ (夏目漱石)
+- 45ページ | 位置No. 678 | 作成日: 2023年12月16日土曜日 15:30:22
 
-それは私の心でもつかめない「私」であった。
+私は人間の生活の奥に潜んでいる真理を知りたいと思った。
 ==========
 ```
 
 Output (`my_clippings_localized.txt`):
 ```
-夏目漱石『こころ』
-- Your Highlight | Location 124-125 | Added on Thursday, November 2, 2023 15:30:45
+こころ (夏目漱石)
+- Your Highlight on page 45 | Location 678 | Added on Saturday, December 16, 2023 3:30:22 PM
 
-それは私の心でもつかめない「私」であった。
+私は人間の生活の奥に潜んでいる真理を知りたいと思った。
 ==========
 ```
+
+This example is taken directly from the examples directory and shows a real transformation performed by the tool. It demonstrates the localization of page numbers, location information, and date/time formatting from Japanese to English.
 
 ## Extending to Other Languages
 

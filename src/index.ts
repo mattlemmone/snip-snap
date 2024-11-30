@@ -1,16 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { extname } from 'path';
-
-const weekdayMap: { [key: string]: string } = {
-  '月': 'Monday',
-  '火': 'Tuesday',
-  '水': 'Wednesday',
-  '木': 'Thursday',
-  '金': 'Friday',
-  '土': 'Saturday',
-  '日': 'Sunday'
-};
-
 import { LocalizationStrategy } from './localization/LocalizationStrategy';
 import { LocalizationFactory } from './localization/LocalizationFactory';
 
@@ -54,8 +43,6 @@ function processClippings(lines: string[], localizationStrategy: LocalizationStr
 function writeClippingsToFile(filePath: string, lines: string[]): void {
   writeFileSync(filePath, lines.join('\n'), 'utf-8');
 }
-
-import { LocalizationFactory } from './localization/LocalizationFactory';
 
 function localizeFile(inputFilePath: string, languageCode: string): void {
   const startTime = Date.now();

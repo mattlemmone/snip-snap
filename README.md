@@ -10,6 +10,8 @@ This project was written entirely via [Aider](https://github.com/paulgauthier/ai
 - Localizes page numbers, location ranges, and dates into English.
 - Supports a plugin architecture for adding more languages.
 
+**Note:** Currently, the tool assumes that all clippings will be localized into English. Support for other target languages may be added in the future.
+
 ## Prerequisites
 
 - [Bun](https://bun.sh) - A fast all-in-one JavaScript runtime.

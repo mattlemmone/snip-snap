@@ -1,6 +1,6 @@
 import { LocalizationStrategy } from './LocalizationStrategy';
 import JapaneseLocalization from './plugins/JapaneseLocalization';
-import { SUPPORTED_LOCALES, isSupportedLocale } from './constants';
+import { SUPPORTED_LOCALES, isSupportedLocale } from './locales';
 
 export class LocalizationFactory {
   static getLocalizationStrategy(languageCode: string): LocalizationStrategy {

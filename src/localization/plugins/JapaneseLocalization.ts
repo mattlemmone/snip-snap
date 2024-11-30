@@ -1,5 +1,5 @@
 import { BaseLocalizationStrategy } from '../BaseLocalizationStrategy';
-import { SUPPORTED_LOCALES } from '../constants';
+import { SUPPORTED_LOCALES } from '../../localization/constants';
 
 export default class JapaneseLocalization extends BaseLocalizationStrategy {
   languageCode = SUPPORTED_LOCALES.JAPANESE;

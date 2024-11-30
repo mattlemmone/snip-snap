@@ -61,7 +61,7 @@ function localizeFile(inputFilePath: string, languageCode: string): void {
 function main(): void {
   const args = process.argv.slice(2);
   if (args.length < 2) {
-    console.error('Usage: node index.js <inputFilePath> <languageCode>');
+    console.error('Usage: <inputFilePath> <languageCode>');
     process.exit(1);
   }
   const inputFilePath = args[0];

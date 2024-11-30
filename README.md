@@ -5,7 +5,7 @@ Snip-snap is a command-line tool that localizes Kindle clippings exported from d
 
 This project was written entirely via [Aider](https://github.com/paulgauthier/aider), an AI-powered coding assistant.
 
-https://github.com/user-attachments/assets/8d56b8c1-ea3b-4cd3-81ca-d04f61cf2007[
+https://github.com/user-attachments/assets/8d56b8c1-ea3b-4cd3-81ca-d04f61cf2007
 
 
 ## Note: AI Coding Experiment

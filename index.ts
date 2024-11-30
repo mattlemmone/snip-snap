@@ -62,24 +62,21 @@ export function localizeClipping(line: string): string {
   return localizedString;
 }
 
-function localizeFile(inputFilePath: string): void {
-  // Validate that the file is a text file
-  if (extname(inputFilePath) !== '.txt') {
+function readClippingsFromFile(filePath: string): string[] {
+  if (extname(filePath) !== '.txt') {
     console.error('Error: The input file must be a text file.');
     process.exit(1);
   }
+  const fileContent = readFileSync(filePath, 'utf-8');
+  return fileContent.split('\n');
+}
 
-  const startTime = Date.now(); // Track the start time
-
-  const fileContent = readFileSync(inputFilePath, 'utf-8');
-  const lines = fileContent.split('\n');
-
-  // Count the number of clippings
+function processClippings(lines: string[]): { localizedLines: string[], clippingCount: number } {
+  const localizedLines = [];
   const clippingPattern = /^\s*==========\s*$/;
   const clippingCount = lines.filter(line => clippingPattern.test(line)).length;
   console.log(`Total clippings to process: ${clippingCount}`);
 
-  const localizedLines = [];
   let processedClippings = 0;
   let lastLoggedProgress = -5;
 
@@ -92,7 +89,6 @@ function localizeFile(inputFilePath: string): void {
       const progress = ((processedClippings / clippingCount) * 100).toFixed(2);
       const progressInt = Math.floor(parseFloat(progress));
 
-      // Log progress at 5% increments
       if (progressInt % 5 === 0 && progressInt !== lastLoggedProgress) {
         console.log(`Processed ${processedClippings}/${clippingCount} clippings (${progressInt}%)`);
         lastLoggedProgress = progressInt;
@@ -100,14 +96,27 @@ function localizeFile(inputFilePath: string): void {
     }
   }
 
-  const outputFilePath = inputFilePath.replace(/(\.[^/.]+)$/, '_localized$1');
-  writeFileSync(outputFilePath, localizedLines.join('\n'), 'utf-8');
+  return { localizedLines, clippingCount };
+}
 
-  const endTime = Date.now(); // Track the end time
+function writeClippingsToFile(filePath: string, lines: string[]): void {
+  writeFileSync(filePath, lines.join('\n'), 'utf-8');
+}
+
+function localizeFile(inputFilePath: string): void {
+  const startTime = Date.now();
+
+  const lines = readClippingsFromFile(inputFilePath);
+  const { localizedLines, clippingCount } = processClippings(lines);
+
+  const outputFilePath = inputFilePath.replace(/(\.[^/.]+)$/, '_localized$1');
+  writeClippingsToFile(outputFilePath, localizedLines);
+
+  const endTime = Date.now();
   const elapsedTime = endTime - startTime;
   console.log(`Processed ${lines.length} lines across ${clippingCount} clippings in ${elapsedTime} ms.`);
 }
-if (require.main === module) {
+function main(): void {
   const args = process.argv.slice(2);
   if (args.length === 0) {
     console.error('Error: No input file provided.');
@@ -115,4 +124,8 @@ if (require.main === module) {
   }
   const inputFilePath = args[0];
   localizeFile(inputFilePath);
+}
+
+if (require.main === module) {
+  main();
 }

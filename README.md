@@ -25,6 +25,28 @@ I welcome contributions, fixes, new languages, and requests to localize into lan
 
 **Note:** Currently, the tool assumes that all clippings will be localized into English. Support for other target languages may be added in the future.
 
+### Sample Input/Output
+
+Input (`my_clippings.txt`):
+```
+こころ (夏目漱石)
+- 45ページ | 位置No. 678 | 作成日: 2023年12月16日土曜日 15:30:22
+
+私は人間の生活の奥に潜んでいる真理を知りたいと思った。
+==========
+```
+
+Output (`my_clippings_localized.txt`):
+```
+こころ (夏目漱石)
+- Your Highlight on page 45 | Location 678 | Added on Saturday, December 16, 2023 3:30:22 PM
+
+私は人間の生活の奥に潜んでいる真理を知りたいと思った。
+==========
+```
+
+This example is taken directly from the examples directory and shows a real transformation performed by the tool. It demonstrates the localization of page numbers, location information, and date/time formatting from Japanese to English.
+
 ## Prerequisites
 
 - [Bun](https://bun.sh) - A fast all-in-one JavaScript runtime.
@@ -81,27 +103,6 @@ bun test
 
 This will execute the tests defined in `index.test.ts`, ensuring that the localization functions work as expected.
 
-### Sample Input/Output
-
-Input (`my_clippings.txt`):
-```
-こころ (夏目漱石)
-- 45ページ | 位置No. 678 | 作成日: 2023年12月16日土曜日 15:30:22
-
-私は人間の生活の奥に潜んでいる真理を知りたいと思った。
-==========
-```
-
-Output (`my_clippings_localized.txt`):
-```
-こころ (夏目漱石)
-- Your Highlight on page 45 | Location 678 | Added on Saturday, December 16, 2023 3:30:22 PM
-
-私は人間の生活の奥に潜んでいる真理を知りたいと思った。
-==========
-```
-
-This example is taken directly from the examples directory and shows a real transformation performed by the tool. It demonstrates the localization of page numbers, location information, and date/time formatting from Japanese to English.
 
 ## Extending to Other Languages
 

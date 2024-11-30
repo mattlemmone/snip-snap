@@ -1,4 +1,20 @@
 import { readFileSync, writeFileSync } from 'fs';
+import { extname } from 'path';
+
+const weekdayMap: { [key: string]: string } = {
+  '月': 'Monday',
+  '火': 'Tuesday',
+  '水': 'Wednesday',
+  '木': 'Thursday',
+  '金': 'Friday',
+  '土': 'Saturday',
+  '日': 'Sunday'
+};
+
+const monthNames = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
 
 export function localizeClipping(line: string): string {
   // Handle the clipping limit message
@@ -9,8 +25,6 @@ export function localizeClipping(line: string): string {
     return line;
   }
 
-  // Print the original line before transformation
-  console.log(`Original line: ${line}`);
 
   // Match both formats of Japanese Kindle clippings
   const pageMatch = line.match(/- (.*?)ページ/) || [];
@@ -28,22 +42,7 @@ export function localizeClipping(line: string): string {
     ? `${locationStart}-${locationEnd}`
     : locationStart;
 
-  // Convert Japanese weekday to English
-  const weekdayMap: { [key: string]: string } = {
-    '月': 'Monday',
-    '火': 'Tuesday',
-    '水': 'Wednesday',
-    '木': 'Thursday',
-    '金': 'Friday',
-    '土': 'Saturday',
-    '日': 'Sunday'
-  };
-
   const [year, month, day, weekday, hour, minute, second] = dateMatch ? dateMatch.slice(1) : [];
-  const monthNames = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ];
 
   // Format the date in English
   const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
@@ -59,28 +58,61 @@ export function localizeClipping(line: string): string {
   )}, ${year} ${hour12}:${minute}:${second} ${period}`;
 
 
-  // Print the localized string on success
-  console.log(`Localized string: ${localizedString}`);
 
   return localizedString;
 }
 
 function localizeFile(inputFilePath: string): void {
-  // Read the file content
-  const fileContent = readFileSync(inputFilePath, 'utf-8');
-  
-  // Split the content into lines
-  const lines = fileContent.split('\n');
-  
-  // Process each line
-  const localizedLines = lines.map(line => localizeClipping(line));
-  
-  // Create the output file path
-  const outputFilePath = inputFilePath.replace(/(\.[^/.]+)$/, '_localized$1');
-  
-  // Write the localized lines to the new file
-  writeFileSync(outputFilePath, localizedLines.join('\n'), 'utf-8');
-}
+  // Validate that the file is a text file
+  if (extname(inputFilePath) !== '.txt') {
+    console.error('Error: The input file must be a text file.');
+    process.exit(1);
+  }
 
-// Example usage
-localizeFile('./My Clippings.txt');
+  const startTime = Date.now(); // Track the start time
+
+  const fileContent = readFileSync(inputFilePath, 'utf-8');
+  const lines = fileContent.split('\n');
+
+  // Count the number of clippings
+  const clippingPattern = /^\s*==========\s*$/;
+  const clippingCount = lines.filter(line => clippingPattern.test(line)).length;
+  console.log(`Total clippings to process: ${clippingCount}`);
+
+  const localizedLines = [];
+  let processedClippings = 0;
+  let lastLoggedProgress = -5;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    localizedLines.push(localizeClipping(line));
+
+    if (clippingPattern.test(line)) {
+      processedClippings++;
+      const progress = ((processedClippings / clippingCount) * 100).toFixed(2);
+      const progressInt = Math.floor(parseFloat(progress));
+
+      // Log progress at 5% increments
+      if (progressInt % 5 === 0 && progressInt !== lastLoggedProgress) {
+        console.log(`Processed ${processedClippings}/${clippingCount} clippings (${progressInt}%)`);
+        lastLoggedProgress = progressInt;
+      }
+    }
+  }
+
+  const outputFilePath = inputFilePath.replace(/(\.[^/.]+)$/, '_localized$1');
+  writeFileSync(outputFilePath, localizedLines.join('\n'), 'utf-8');
+
+  const endTime = Date.now(); // Track the end time
+  const elapsedTime = endTime - startTime;
+  console.log(`Processed ${lines.length} lines across ${clippingCount} clippings in ${elapsedTime} ms.`);
+}
+if (require.main === module) {
+  const args = process.argv.slice(2);
+  if (args.length === 0) {
+    console.error('Error: No input file provided.');
+    process.exit(1);
+  }
+  const inputFilePath = args[0];
+  localizeFile(inputFilePath);
+}

@@ -1,5 +1,7 @@
 import { expect, test, describe } from "bun:test";
-import { localizeClipping } from "./index";
+import JapaneseLocalization from "./localization/plugins/JapaneseLocalization";
+
+const localizationStrategy = new JapaneseLocalization();
 
 describe("Kindle clipping localization", () => {
   const testCases = [
@@ -42,7 +44,8 @@ describe("Kindle clipping localization", () => {
 
   test("should localize different Japanese page/location formats to English", () => {
     testCases.forEach(({ description, input, expected }) => {
-      expect(localizeClipping(input)).toBe(expected);
+      const result = localizationStrategy.localizeClipping(input);
+      expect(result).toBe(expected);
     });
   });
 });
